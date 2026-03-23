@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Order Not Found | UtPOS</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        background: #1e5799;
+        background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+        color: white;
+        padding: 15px 0;
+        border-bottom: 3px solid #1c508a;
+    }
+
+    .container {
+        width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    #logo {
+        float: left;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    #logo span { color: #ff9900; }
+    #logo sub {
+        font-size: 11px;
+        font-weight: normal;
+        color: #c8dff5;
+        letter-spacing: 0.05em;
+        vertical-align: baseline;
+        margin-left: 6px;
+        text-shadow: none;
+    }
+
+    nav { float: right; margin-top: 5px; }
+    nav ul { margin: 0; padding: 0; list-style: none; }
+    nav ul li { display: inline; margin-left: 20px; }
+    nav ul li a { text-decoration: none; color: white; font-weight: bold; font-size: 14px; }
+    nav ul li a:hover { text-decoration: underline; }
+
+    #error-body {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        background-color: #e8e8e8;
+        background-image:
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 23px,
+                rgba(0,0,0,0.03) 23px,
+                rgba(0,0,0,0.03) 24px
+            );
+    }
+
+    .receipt {
+        font-family: 'Share Tech Mono', 'Courier New', monospace;
+        background: #fafaf8;
+        width: 340px;
+        padding: 0;
+        box-shadow:
+            0 1px 2px rgba(0,0,0,0.15),
+            0 4px 12px rgba(0,0,0,0.12),
+            0 12px 30px rgba(0,0,0,0.08);
+        position: relative;
+        animation: drop-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes drop-in {
+        from { opacity: 0; transform: translateY(-18px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .receipt::before {
+        content: '';
+        display: block;
+        height: 12px;
+        background:
+            radial-gradient(circle at 6px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 18px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 30px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 42px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 54px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 66px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 78px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 90px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 102px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 114px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 126px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 138px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 150px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 162px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 174px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 186px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 198px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 210px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 222px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 234px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 246px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 258px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 270px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 282px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 294px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 306px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 318px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 330px -2px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 342px -2px, #e8e8e8 6px, transparent 7px);
+        background-color: #fafaf8;
+        background-repeat: no-repeat;
+    }
+
+    .receipt::after {
+        content: '';
+        display: block;
+        height: 12px;
+        background:
+            radial-gradient(circle at 6px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 18px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 30px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 42px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 54px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 66px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 78px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 90px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 102px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 114px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 126px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 138px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 150px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 162px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 174px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 186px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 198px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 210px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 222px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 234px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 246px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 258px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 270px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 282px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 294px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 306px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 318px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 330px 14px, #e8e8e8 6px, transparent 7px),
+            radial-gradient(circle at 342px 14px, #e8e8e8 6px, transparent 7px);
+        background-color: #fafaf8;
+        background-repeat: no-repeat;
+    }
+
+    .receipt-inner {
+        padding: 20px 28px 24px;
+        font-size: 13px;
+        color: #1a1a1a;
+        line-height: 1.5;
+    }
+
+    .receipt-header {
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    .receipt-header .store-name {
+        font-size: 17px;
+        font-weight: bold;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .receipt-header .store-sub {
+        font-size: 11px;
+        color: #666;
+        letter-spacing: 0.06em;
+    }
+
+    .divider {
+        border: none;
+        border-top: 1px dashed #bbb;
+        margin: 12px 0;
+    }
+
+    .divider-solid {
+        border: none;
+        border-top: 1px solid #aaa;
+        margin: 12px 0;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin: 3px 0;
+    }
+
+    .row.muted { color: #888; font-size: 12px; }
+
+    .error-code {
+        text-align: center;
+        font-size: 52px;
+        font-weight: bold;
+        letter-spacing: 0.08em;
+        margin: 18px 0 4px;
+        line-height: 1;
+        color: #111;
+    }
+
+    .error-label {
+        text-align: center;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #555;
+        margin-bottom: 18px;
+    }
+
+    .void-stamp {
+        text-align: center;
+        margin: 10px 0 16px;
+    }
+
+    .void-stamp span {
+        display: inline-block;
+        border: 3px solid #c0392b;
+        color: #c0392b;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 0.25em;
+        padding: 3px 16px;
+        transform: rotate(-4deg);
+        opacity: 0.82;
+    }
+
+    .receipt-message {
+        text-align: center;
+        font-size: 12px;
+        color: #555;
+        margin: 14px 0 6px;
+        line-height: 1.6;
+    }
+
+    .btn-home {
+        display: block;
+        background: #1e5799;
+        background: linear-gradient(to bottom, #2989d8 0%, #1e5799 100%);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        border-radius: 4px;
+        margin-top: 16px;
+        letter-spacing: 0.04em;
+        border: 1px solid #1c508a;
+    }
+    .btn-home:hover { background: #2989d8; }
+
+    footer {
+        background-color: #333;
+        color: #ccc;
+        padding: 20px 0;
+        font-size: 12px;
+        text-align: center;
+    }
+    footer a { color: #ff9900; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div id="logo"><a href="index.html" style="color:white;text-decoration:none;">Ut<span>POS</span></a><sub>Unified Terminal Point-of-Service</sub></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#main-content">Features</a></li>
+                <li><a href="index.html#section-kds">KDS Support</a></li>
+                <li><a href="LEGAL.md">Legal</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="error-body">
+    <div class="receipt">
+        <div class="receipt-inner">
+
+            <div class="receipt-header">
+                <div class="store-name">UtPOS</div>
+                <div class="store-sub">UNIFIED TERMINAL POINT-OF-SERVICE</div>
+            </div>
+
+            <hr class="divider-solid">
+
+            <div class="row muted"><span>ORDER #</span><span id="order-num">—</span></div>
+            <div class="row muted"><span>TERMINAL</span><span>WEB-01</span></div>
+            <div class="row muted"><span>TIME</span><span id="the-time">—</span></div>
+
+            <hr class="divider">
+
+            <div class="error-code">404</div>
+            <div class="error-label">ORDER NOT FOUND</div>
+
+            <hr class="divider">
+
+            <div class="row"><span>PAGE</span><span>NOT ON MENU</span></div>
+            <div class="row"><span>STATUS</span><span>VOIDED</span></div>
+            <div class="row"><span>TABLE</span><span>&#8212;</span></div>
+            <div class="row"><span>COVERS</span><span>0</span></div>
+
+            <hr class="divider">
+
+            <div class="void-stamp"><span>VOID</span></div>
+
+            <hr class="divider">
+
+            <div class="receipt-message">
+                The page you requested does not exist<br>
+                or has been removed from the system.<br>
+                Please check the URL and try again.
+            </div>
+
+            <a href="index.html" class="btn-home">&#8592; RETURN TO HOME SCREEN</a>
+
+            <hr class="divider" style="margin-top:20px;">
+            <div class="receipt-message" style="font-size:11px;color:#aaa;margin:6px 0 0;">
+                utpos.example.com &bull; GPLv3 Open Source
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 UtPOS Project &mdash; <a href="LEGAL.md">Legal / Interoperability Notice</a></p>
+</footer>
+
+<script>
+    document.getElementById('order-num').textContent =
+        String(Math.floor(Math.random() * 9000) + 1000);
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+        var d = new Date();
+        document.getElementById('the-time').textContent =
+            pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+    tick();
+    setInterval(tick, 1000);
+</script>
+
+</body>
+</html>
