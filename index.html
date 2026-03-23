@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UtPOS - Unified Terminal Point-of-Service</title>
+<style>
+    body {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    header {
+        background: #1e5799;
+        background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+        color: white;
+        padding: 15px 0;
+        border-bottom: 3px solid #1c508a;
+    }
+
+    .container {
+        width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    #logo {
+        float: left;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    #logo span { color: #ff9900; }
+    #logo sub {
+        font-size: 11px;
+        font-weight: normal;
+        color: #c8dff5;
+        letter-spacing: 0.05em;
+        vertical-align: baseline;
+        margin-left: 6px;
+        text-shadow: none;
+    }
+
+    nav { float: right; margin-top: 5px; }
+    nav ul { margin: 0; padding: 0; list-style: none; }
+    nav ul li { display: inline; margin-left: 20px; }
+    nav ul li a { text-decoration: none; color: white; font-weight: bold; font-size: 14px; }
+    nav ul li a:hover { text-decoration: underline; }
+
+    #hero {
+        background-color: #e2e2e2;
+        padding: 50px 0;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+
+    #hero h1 { font-size: 38px; margin-bottom: 8px; }
+    #hero p.tagline { font-size: 19px; color: #555; margin-bottom: 30px; }
+
+    .btn-download {
+        display: inline-block;
+        background: #ffaf4b;
+        background: linear-gradient(to bottom, #ffaf4b 0%,#ff920a 100%);
+        color: white;
+        padding: 15px 32px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 8px;
+        border: 1px solid #e38200;
+        box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
+    }
+    .btn-download:hover { background: #ff920a; }
+
+    #main-content { padding: 40px 0; background-color: white; }
+
+    #kds-notice {
+        background-color: #e8f4fd;
+        border: 1px solid #b8d9f5;
+        color: #1a5a8a;
+        padding: 14px 20px;
+        border-radius: 5px;
+        margin-bottom: 35px;
+        text-align: center;
+        font-size: 14px;
+    }
+    #kds-notice strong { font-size: 15px; }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .feature-item {
+        background: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .feature-item h3 { color: #207cca; margin-top: 0; }
+
+    #section-kds {
+        border-top: 1px solid #eee;
+        padding-top: 35px;
+    }
+
+    #section-kds h2 { margin-bottom: 6px; }
+    #section-kds .section-sub {
+        color: #666;
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    .kds-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .kds-item {
+        background: #f3f9ff;
+        border: 1px solid #cce4f7;
+        padding: 18px 20px;
+        border-radius: 5px;
+    }
+    .kds-item h4 { color: #1a5a8a; margin: 0 0 6px 0; }
+    .kds-item p { margin: 0; font-size: 14px; color: #444; }
+
+    footer {
+        background-color: #333;
+        color: #ccc;
+        padding: 30px 0;
+        font-size: 12px;
+    }
+
+    footer a { color: #ff9900; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    #legal-disclaimer {
+        margin-top: 20px;
+        border-top: 1px solid #555;
+        padding-top: 15px;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div id="logo">Ut<span>POS</span><sub>Unified Terminal Point-of-Service</sub></div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#main-content">Features</a></li>
+                <li><a href="#section-kds">KDS Support</a></li>
+                <li><a href="LEGAL.md">Legal</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="hero">
+    <div class="container">
+        <h1>The Free, Open Source POS for Food Service</h1>
+        <p class="tagline">Order management, payments, reporting, and kitchen display &mdash; all in one system.</p>
+        <a href="#" class="btn-download">Download UtPOS v1.0</a>
+    </div>
+</section>
+
+<div id="main-content">
+    <div class="container">
+
+        <div id="kds-notice">
+            <strong>&#10003; Oasys IPadSX compatible.</strong> &nbsp;Already have a kitchen display setup? UtPOS works with your existing Oasys IPadSX hardware out of the box &mdash; no new screens required. <a href="#section-kds">Learn more &darr;</a>
+        </div>
+
+        <h2>Everything Your Operation Needs</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Order Management</h3>
+                <p>Take dine-in, takeout, and delivery orders from a fast, intuitive interface built for busy service environments.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Payment Processing</h3>
+                <p>Accept cash, card, and split payments. Receipt printing and end-of-day reconciliation built in.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Menu &amp; Pricing</h3>
+                <p>Manage your full menu with modifiers, categories, pricing tiers, and daily specials &mdash; all editable on the fly.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Reporting &amp; Analytics</h3>
+                <p>Sales summaries, item performance reports, and shift breakdowns &mdash; all exportable as CSV.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Open Source (GPLv3)</h3>
+                <p>No licensing fees, no forced upgrades, no vendor lock-in. The software is yours to run, modify, and extend.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Lightweight &amp; Fast</h3>
+                <p>Low hardware requirements and a minimal footprint mean UtPOS runs reliably even on older terminal equipment.</p>
+            </div>
+        </div>
+
+        <div id="section-kds">
+            <h2>Kitchen Display System Support</h2>
+            <p class="section-sub">UtPOS routes orders directly to your kitchen screens &mdash; including legacy Oasys hardware you may already own.</p>
+            <div class="kds-grid">
+                <div class="kds-item">
+                    <h4>Oasys IPadSX Compatibility</h4>
+                    <p>Our protocol engine was developed through clean-room Wireshark analysis of the ChefXML/ROD Gold communication layer, enabling full compatibility with your existing Oasys IPadSX displays. No hardware replacement needed.</p>
+                </div>
+                <div class="kds-item">
+                    <h4>Real-Time Order Routing</h4>
+                    <p>New tickets appear on the KDS the moment they are submitted at the terminal. Bump and recall controls let kitchen staff manage order flow efficiently.</p>
+                </div>
+                <div class="kds-item">
+                    <h4>Multi-Screen Support</h4>
+                    <p>Route different item categories (grill, prep, expo) to separate screens. Configurable station layouts adapt to your kitchen workflow.</p>
+                </div>
+                <div class="kds-item">
+                    <h4>Reduce E-Waste</h4>
+                    <p>End-of-life ChefXML/ROD Gold software doesn't have to mean end-of-life hardware. UtPOS gives your Oasys screens a second life and keeps working equipment out of the landfill.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 UtPOS Project. All rights reserved. &mdash; <a href="LEGAL.md">Legal / Interoperability Notice</a></p>
+        <p>UtPOS &mdash; Unified Terminal Point-of-Service &mdash; Free and open source under GPLv3.</p>
+        <div id="legal-disclaimer">
+            <strong>Trademark Disclaimer:</strong> ChefXML, ROD Gold, Oasys, and IPadSX are trademarks of Select Electronics. The UtPOS project is an independent implementation and is NOT affiliated with, sponsored by, or endorsed by Select Electronics. This software is provided "as is" for the purpose of interoperability.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
